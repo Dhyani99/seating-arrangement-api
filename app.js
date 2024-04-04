@@ -1,14 +1,14 @@
-const express = require('express');
- 
-// Creating express object
+const express = require("express");
+const cors = require("cors");
 const app = express();
- 
-// Handling GET request
-app.get('/', (req, res) => { 
-    res.send('A simple Node App is '
-        + 'running on this server') 
-    res.end() 
-}) 
+
+app.use(cors());
+app.use(express.json());
+
+app.get("/message", (req, res) => {
+  res.json({ message: "Hello from server!" });
+});
+
  
 // Port Number
 const PORT = process.env.PORT ||4000;
